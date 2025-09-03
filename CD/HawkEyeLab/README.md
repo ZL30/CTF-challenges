@@ -53,3 +53,64 @@ The **Protocol Hierarchy Statistics** from Wireshark shows the following key poi
 
 **Conclusion:** The connection with `217.182.138.150` stands out as the most suspicious, indicating potential data exfiltration activity.
 
+## 📨 SMTP Exfiltration Evidence
+
+### SMTP Handshake
+- Server: `p3plcpnl0413.prod.phx3.secureserver.net` (Exim 4.91)
+- Greeting: Server does **not authorize bulk/unsolicited email**
+- Client EHLO: `Beijing-5cd1-PC` (`173.66.146.112`)
+
+### Authentication
+- Method: `AUTH LOGIN`
+- Username (Base64 decoded): **[REDACTED]**
+- Password (Base64 decoded): **[REDACTED]**
+- ✅ Authentication succeeded.
+
+### Email Transaction
+- **MAIL FROM**: **[REDACTED]**
+- **RCPT TO**: **[REDACTED]**
+- Subject (decoded): `HawkEye Keylogger - Reborn v9 - Passwords Logs - Victim Host`
+- Message contains **keylogger logs**.
+
+### Extracted Content
+The email body (Base64 decoded) reveals **credentials harvested by HawkEye Keylogger**.  
+(Actual usernames, emails, and passwords have been **redacted** for security.)
+
+Example categories of stolen data:
+- **Webmail credentials** (e.g., AOL, Gmail, etc.)
+- **Banking logins** (e.g., online banking portals)
+- **Corporate email accounts** (e.g., Outlook / POP3 / SMTP)
+
+### Indicators
+- SMTP used as **C2 / exfiltration channel** through a legitimate mail server.
+- Multiple credential categories exfiltrated (personal + corporate).
+- Malware identified: **HawkEye Reborn v9 (Keylogger)**.
+
+### Conclusion
+The attacker successfully **exfiltrated sensitive credentials** to their own mailbox via SMTP.  
+This confirms:
+- **Data exfiltration over email (C2 channel)**  
+- **Use of stolen corporate + personal credentials**  
+- **HawkEye Keylogger v9 active on host `BEIJING-5CD1-PC (173.66.146.112)`**
+
+## 🛑 Malware Sample Analysis (VirusTotal)
+
+### Overview
+A suspicious executable file was analyzed on VirusTotal.  
+- Size: ~1.9 MB  
+- Type: Windows executable (PE32)  
+- Detection: Flagged as malicious by the majority of antivirus vendors.  
+- Family: Classified as a **Trojan** and linked to the **HawkEye Keylogger** malware.  
+
+### Behavior
+The file shows typical malware characteristics:  
+- Attempts to **persist** on the system.  
+- **Evasion techniques** such as detecting debugging environments and using long sleep delays.  
+- **Information stealing** behavior, consistent with keylogger activity.  
+- **Network communication** likely used for data exfiltration.  
+
+### Conclusion
+This sample is identified as a **HawkEye Keylogger variant**, commonly delivered via phishing emails.  
+It is primarily designed to **steal sensitive credentials** and **exfiltrate them via email (SMTP)**.  
+
+
