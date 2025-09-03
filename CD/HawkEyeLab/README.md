@@ -95,7 +95,7 @@ This confirms:
 
 ## 🛑 Malware Sample Analysis (VirusTotal)
 
-![VirusTotal Analysis Screenshot](images/virustotal_analysis.png)
+![VirusTotal Analysis Screenshot](image/virustotal.PNG)
 
 ### Overview
 A suspicious executable file was analyzed on VirusTotal.  
@@ -115,4 +115,38 @@ The file shows typical malware characteristics:
 This sample is identified as a **HawkEye Keylogger variant**, commonly delivered via phishing emails.  
 It is primarily designed to **steal sensitive credentials** and **exfiltrate them via email (SMTP)**.  
 
+## 📅 Timeline of Events
 
+- **April 10, 2019 @ 20:37:54 UTC**  
+  - User accessed the domain: `proforma-invoices.com`.  
+  - A file named **`tkraw_protected99.exe`** was requested.  
+  - The file was classified as a **Trojan (HawkEye Keylogger)**, typically delivered via phishing campaigns.  
+
+- **April 10, 2019 @ 20:38:15 UTC**  
+  - Host: `BEIJING-5CD1-PC`.  
+  - Queried the domain: `whatismyipaddress.com`.  
+  - This activity is consistent with malware checking external connectivity.  
+
+- **April 10, 2019 @ 20:38:16 UTC**  
+  - Connection established to a mail server (`IP: 23.229.162.69`).  
+  - Authenticated user: **[REDACTED]** (attacker-controlled email).  
+  - Stolen credentials related to the victim were exfiltrated via SMTP.  
+
+- **April 10, 2019 @ 21:38:43 UTC**  
+  - The **same credentials and logs** were resent to the same email address.  
+
+- **April 10, 2019 @ 21:40:04 UTC**  
+  - **Last observed mail activity** related to HawkEye exfiltration.  
+
+---
+
+### 🕒 Duration Summary
+- **Time Range:** 20:37:54 – 21:40:04 UTC  
+- **Total Duration:** **1 hour, 2 minutes, 10 seconds**
+
+---
+
+## ⚠️ Disclaimer
+This report is part of a **CTF / educational challenge**.  
+All information (usernames, emails, passwords, domains) is **fictional or simulated**.  
+Any resemblance to real data is purely coincidental.
