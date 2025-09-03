@@ -145,6 +145,14 @@ It is primarily designed to **steal sensitive credentials** and **exfiltrate the
 - **Total Duration:** **1 hour, 2 minutes, 10 seconds**
 
 ---
+## 🔗 MITRE ATT&CK Mapping
+
+- **Initial Access (T1566.001):** Phishing via malicious attachment/URL (`proforma-invoices.com`).  
+- **Execution (T1059):** User executed `tkraw_protected99.exe`.  
+- **Persistence (T1547):** Malware shows persistence mechanisms.  
+- **Credential Access (T1056.001):** Keylogging activity observed.  
+- **Exfiltration (T1048.003):** Exfiltration over SMTP (to attacker-controlled email).  
+- **Command and Control (T1071.003):** Use of application layer protocol (SMTP) as C2 channel.
 
 ## ⚠️ Disclaimer
 This report is part of a **CTF / educational challenge**.  
