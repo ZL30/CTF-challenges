@@ -95,6 +95,8 @@ This confirms:
 
 ## 🛑 Malware Sample Analysis (VirusTotal)
 
+![VirusTotal Analysis Screenshot](images/virustotal_analysis.png)
+
 ### Overview
 A suspicious executable file was analyzed on VirusTotal.  
 - Size: ~1.9 MB  
