@@ -2,12 +2,13 @@
 
 🔗 **Challenge link:** [blueteamlabs Labs Online](https://blueteamlabs.online/home/challenge/log-analysis-compromised-wordpress-ce000f5b59)  
 📂 **Category:** Log Analysis  
-🗂️ **File analyzed:** `stealer.pcap`
+🗂️ **File analyzed:** `access.log`
 
 ---
 
 ## 🎯 Objective
-Reconstruct a HawkEye Keylogger data exfiltration incident by analyzing captured network traffic using Wireshark and CyberChef, with the aim of identifying Indicators of Compromise (IoCs), detecting stolen credentials, and understanding the attacker’s techniques.
-
+Objective:
+One of our WordPress instances has been compromised. Initial log analysis indicates exploitation of the Simple File List plugin, where an attacker uploaded and executed a malicious file (WebShell). The goal of this analysis is to trace the intrusion path, confirm the exploited vulnerability, assess potential impact on the server, and provide remediation steps to prevent future incidents.
 ---
 ## 🔍 Analysis Steps
+
