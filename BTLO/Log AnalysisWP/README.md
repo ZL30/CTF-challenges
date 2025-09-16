@@ -34,4 +34,12 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
 | 70    | 103.69.55.212  | 3     | 107.32.221.97 | 4     | 172.21.0.4    | 1     | 197.13.28.21 |
 | 59    | 110.29.54.120  | 2     | 197.13.28.25  |       |               | 1     | 197.13.28.11 |
 
+### 1-Plugin Contact Form 7 was activated.
+* **\[12/Jan/2021 – 15:57:07 UTC]**
 
+  * **Source IP:** `172.21.0.1`
+  * **Action:** Request to **activate Contact Form 7 plugin**
+  * **Endpoint:** `/wp-admin/plugins.php?action=activate&plugin=contact-form-7...`
+  * **Response:** HTTP `302` (redirect)
+  * **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0`
+  * **Observation:** Plugin activation successfully triggered.
