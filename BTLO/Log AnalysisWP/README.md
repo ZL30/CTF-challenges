@@ -34,7 +34,8 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
 | 70    | 103.69.55.212  | 3     | 107.32.221.97 | 4     | 172.21.0.4    | 1     | 197.13.28.21 |
 | 59    | 110.29.54.120  | 2     | 197.13.28.25  |       |               | 1     | 197.13.28.11 |
 
-### 1-Plugin Contact Form 7 was activated.
+### Timeline of Events
+1-Plugin Contact Form 7 was activated.
 * **\[12/Jan/2021 – 15:57:07 UTC]**
 
   * **Source IP:** `172.21.0.1`
@@ -43,3 +44,44 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
   * **Response:** HTTP `302` (redirect)
   * **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0`
   * **Observation:** Plugin activation successfully triggered.
+  
+2-Plugin Simple File List was activated.
+* **\[12/Jan/2021 – 15:56:41 UTC]**
+
+  * **Source IP:** `172.21.0.1`
+  * **Action:** Request to **activate Simple File List plugin**
+  * **Endpoint:** `/wp-admin/plugins.php?action=activate&plugin=simple-file-list%2Fee-simple-file-list.php&_wpnonce=18b9b6c3cf`
+  * **Response:** HTTP `302` (redirect)
+  * **User-Agent:** `Mozilla/5.0 (X11; Linux x86_64; rv:78.0) Gecko/20100101 Firefox/78.0`
+  * **Observation:** Plugin activation successfully triggered.
+
+3-Observation: Both plugins in use are affected by known Remote Code Execution (RCE) vulnerabilities.
+
+  * **Contact Form 7**
+
+    * **Vulnerable versions:** `<= 5.3.1`
+    * **Impact:** Allows attackers to exploit file upload misconfigurations leading to arbitrary code execution.
+
+  * **Simple File List**
+
+    * **Vulnerable versions:** `<= 4.2.2`
+    * **Impact:** Permits unauthorized file upload and remote execution of malicious scripts.
+
+* **Security Implication:**
+  Exploiting these vulnerabilities enables attackers to upload and execute arbitrary PHP code on the target server, leading to full compromise.
+
+* **\[14/Jan/2021 – 05:42:34 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Activity:** First external IP interaction detected.
+  * **Observation:** IP interacting with both vulnerable plugins (`Contact Form 7` and `Simple File List`).
+  * **Behavior:** Crawling file paths on internal host `172.21.0.3`.
+
+* **\[14/Jan/2021 – 05:54:14 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Activity:** Attempted authentication bypass.
+  * **Observation:** Token identified – `adminlogin`.
+  * **Endpoint:** `wp-login.php?itsec-hb-token=adminlogin`
+  * **Implication:** Possible brute force or token abuse attempt to gain admin access.
+
