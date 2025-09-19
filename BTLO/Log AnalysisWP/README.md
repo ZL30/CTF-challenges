@@ -161,13 +161,31 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
 
 **Total Duration:** 47 minutes & 37 seconds
 
-## 🔗 MITRE ATT&CK Mapping
-- **Execution (T1203):** Activation of vulnerable WordPress plugins (Simple File List, Contact Form 7).  
-- **Vulnerability Exploitation (T1190):** Known RCE flaws in both plugins exposed the system to arbitrary file upload and execution.  
-- **Reconnaissance (T1595):** WPScan usage and crawling activity from external IPs (Japan, Taiwan) to enumerate plugins and file paths.  
-- **Credential Access (T1110.003):** Attempted authentication bypass using token `adminlogin`.  
-- **Execution (T1059):** Upload of malicious file (`fr34k.png`) via Simple File List plugin.  
-- **Command and Control (T1071.001):** Webshell (`fr34k.php`) accessed successfully from Taiwan IP, enabling remote interaction.  
+## 🔗 MITRE ATT\&CK Mapping
+
+* **Initial Access (T1190):** Exploitation of vulnerable WordPress plugins (Simple File List, Contact Form 7).
+* **Execution (T1203):** Activation and use of vulnerable plugins enabled remote code execution.
+* **Reconnaissance (T1595):** External actors performed WPScan and crawling (Japan, Taiwan) to enumerate plugins and file paths.
+* **Credential Access (T1110.003):** Attempted authentication bypass using token `adminlogin`.
+* **Execution (T1059):** Upload of malicious file (`fr34k.png`) through Simple File List plugin.
+* **Command and Control (T1071.001):** Webshell (`fr34k.php`) accessed successfully from Taiwan IP, providing remote interaction.
+
+## 🛡️ Recommendations
+1. **Patch Management:**
+   * Update WordPress plugins (Simple File List, Contact Form 7) to the latest secure versions.
+   * Regularly review and remove unused/vulnerable plugins.
+2. **Access Control:**
+   * Implement strong authentication (MFA) for WordPress admin access.
+   * Restrict login attempts and monitor authentication bypass attempts.
+3. **Monitoring & Detection:**
+   * Deploy Web Application Firewall (WAF) to detect and block exploitation attempts.
+   * Enable logging and alerting for suspicious file uploads or webshell activity.
+4. **Incident Response:**
+   * Review uploaded files (`fr34k.png`, `fr34k.php`) and remove any malicious content.
+   * Investigate internal host `172.21.0.3` for persistence or further compromise.
+5. **Hardening:**
+   * Disable direct PHP execution in upload directories.
+   * Apply principle of least privilege for file and plugin management.
 
 
 
