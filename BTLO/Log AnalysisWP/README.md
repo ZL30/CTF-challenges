@@ -186,7 +186,11 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
 5. **Hardening:**
    * Disable direct PHP execution in upload directories.
    * Apply principle of least privilege for file and plugin management.
-
+   * 
+## ⚠️ Disclaimer
+This report is part of a **CTF / educational challenge**.  
+All information (usernames, emails, passwords, domains) is **fictional or simulated**.  
+Any resemblance to real data is purely coincidental.
 
 
 
