@@ -91,5 +91,72 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
   * **Observation:** Token identified – `adminlogin`.
   * **Endpoint:** `wp-login.php?itsec-hb-token=adminlogin`
   * **Implication:** Possible brute force or token abuse attempt to gain admin access.
+  * 
+6-WPScan activity detected.
 
+* **\[14/Jan/2021 – 06:01:41 UTC]**
 
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Activity:** Used tool **WPScan** (WordPress Scanner).
+
+7-Crawling activity from Taiwan.
+
+* **\[14/Jan/2021 – 06:08:31 UTC]**
+
+  * **Source IP:** `103.69.55.212` (Taiwan)
+  * **Activity:** Crawling installed plugins.
+  * **Target:** Internal host `172.21.0.3`.
+
+8-Exploitation of vulnerable plugin.
+
+* **\[14/Jan/2021 – 06:26:53 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Exploited Plugin:** `simple-file-list`
+  * **Uploaded File:** `fr34k.png`
+
+### Timeline of Events (Extended)
+
+6-WPScan activity detected.
+
+* **\[14/Jan/2021 – 06:01:41 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Activity:** Used tool **WPScan** (WordPress Scanner).
+
+7-Crawling activity from Taiwan.
+
+* **\[14/Jan/2021 – 06:08:31 UTC]**
+
+  * **Source IP:** `103.69.55.212` (Taiwan)
+  * **Activity:** Crawling installed plugins.
+  * **Target:** Internal host `172.21.0.3`.
+
+8-Exploitation of vulnerable plugin.
+
+* **\[14/Jan/2021 – 06:26:53 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Exploited Plugin:** `simple-file-list`
+  * **Uploaded File:** `fr34k.png`
+
+9-GET request to uploaded file.
+
+* **\[14/Jan/2021 – 06:30:11 UTC]**
+
+  * **Source IP:** `103.69.55.212` (Taiwan)
+  * **Action:** Sent GET request towards `fr34k.php`.
+
+10-Last observed activities.
+
+* **\[14/Jan/2021 – 06:26:53 UTC]**
+
+  * **Source IP:** `119.241.22.121` (Japan)
+  * **Action:** Interaction with vulnerable plugin.
+
+* **\[14/Jan/2021 – 06:30:11 UTC]**
+
+  * **Source IP:** `103.69.55.212` (Taiwan)
+  * **Action:** Webshell accessed successfully.
+
+**Total Duration:** 47 minutes & 37 seconds
