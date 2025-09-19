@@ -160,3 +160,12 @@ cat access.log | cut -d ' ' -f 1 | sort | uniq -c | sort -nr
   * **Action:** Webshell accessed successfully.
 
 **Total Duration:** 47 minutes & 37 seconds
+
+## 🔗 MITRE ATT&CK Mapping
+**Execution (T1203):** Activation of vulnerable WordPress plugins (Simple File List, Contact Form 7).
+**Vulnerability Exploitation (T1190):** Known RCE flaws in both plugins exposed the system to arbitrary file upload and execution.
+**Reconnaissance (T1595):** WPScan usage and crawling activity from external IPs (Japan, Taiwan) to enumerate plugins and file paths.
+**Credential Access (T1110.003):** Attempted authentication bypass using token `adminlogin`.
+**Execution (T1059):** Upload of malicious file (`fr34k.png`) via Simple File List plugin.
+**Command and Control (T1071.001):** Webshell (`fr34k.php`) accessed successfully from Taiwan IP, enabling remote interaction.
+
