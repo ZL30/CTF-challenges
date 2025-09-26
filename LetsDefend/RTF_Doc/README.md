@@ -1,7 +1,7 @@
 # 🕵️‍♂️ LetsDefend Challenge – Malicious Doc : RTF Document
 
 🔗 **Challenge link:** [letsdefend Labs Online](https://app.letsdefend.io/challenge/malicious-doic)  
-📂 **Category:** Malicious Doc
+📂 **Category:** Log Analysis  
 🗂️ **File analyzed:** `factura.doc`
 
 ---
