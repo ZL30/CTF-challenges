@@ -1,4 +1,4 @@
-# 🕵️‍♂️ CD Challenge – Malicious Doc : RTF Document
+# 🕵️‍♂️ LetsDefend Challenge – Malicious Doc : RTF Document
 
 🔗 **Challenge link:** [letsdefend Labs Online](https://app.letsdefend.io/challenge/malicious-doic)  
 📂 **Category:** Malicious Doc
