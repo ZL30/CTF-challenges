@@ -7,6 +7,6 @@
 ---
 
 ## 🎯 Objective
-Reconstruct a HawkEye Keylogger data exfiltration incident by analyzing captured network traffic using Wireshark and CyberChef, with the aim of identifying Indicators of Compromise (IoCs), detecting stolen credentials, and understanding the attacker’s techniques.
+The objective of our analysis was to uncover and understand the operational mechanism of the malicious file (factura.doc) and to identify the final payload it attempts to download and execute.
 
 ---
