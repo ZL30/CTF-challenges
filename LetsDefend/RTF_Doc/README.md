@@ -47,3 +47,7 @@ The file was executed in a controlled environment (sandbox/debugger) to trace it
 - **Mechanism:** Opening the document triggers code that forces the system to connect to a command-and-control server (`seed-bc.com`).  
 - **Payload objective:** Download and execute a secondary malware (`jan2.exe` saved/executed as `aro.exe`) to achieve persistence and full system infection (RCE).
 
+## ⚠️ Disclaimer
+This report is part of a **CTF / educational challenge**.  
+All information (usernames, emails, passwords, domains) is **fictional or simulated**.  
+Any resemblance to real data is purely coincidental.
